@@ -2,15 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : ScriptableObject
-{
+[CreateAssetMenu(menuName = "Items/Create Item")]
+public class Item : ScriptableObject{
 
     public string itemName;
-    public Character.CharacterClass itemClass;
+    public Player.CharacterClass itemClass;
     public ItemType itemType;
-    public ItemStats itemStats;
     public ItemRarity itemRarity;
     public int itemShopValue;
+    
+    [Header("Item Stats")]
+    public int strength;
+    public int vitality;
+    public int speed;
+    public int intelligence;
+    public int armor;
+    public int luck;
+    
     
     public enum ItemType
     {
@@ -29,16 +37,5 @@ public class Item : ScriptableObject
         Epic,
         Legendary,
         Mythic,
-    }
-    
-    public struct ItemStats
-    {
-        public int Strength;
-        public int Vitality;
-        public int Speed;
-        public int Intelligence;
-        public int Armor;
-        public int Luck;
-
     }
 }

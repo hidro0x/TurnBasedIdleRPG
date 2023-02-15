@@ -1,18 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Battle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }
+    
+    public Character CreateCharacter(int vitality, int strength, int intelligent, int speed, int armor, float luck,
+        Character.CharacterClass characterClass)
+    {
+        var character = gameObject.AddComponent<Character>();
+        character.Vitality = vitality;
+        character.Strength = strength;
+        character.İntelligent = intelligent;
+        character.Speed = speed;
+        character.Armor = armor;
+        character.Luck = luck;
+        character.CharacterClassType = characterClass;
+        return character;
+
+    }
+    
 }

@@ -21,7 +21,7 @@ public class Battle : MonoBehaviour
         var character = gameObject.AddComponent<Character>();
         character.Vitality = vitality;
         character.Strength = strength;
-        character.İntelligent = intelligent;
+        character.Intelligent = intelligent;
         character.Speed = speed;
         character.Armor = armor;
         character.Luck = luck;

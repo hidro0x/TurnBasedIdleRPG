@@ -17,7 +17,6 @@ public class Battle : MonoBehaviour
 
     public void StartBattle()
     {
-        _enemy = new
         StartCoroutine(BattleStarted());
     }
     

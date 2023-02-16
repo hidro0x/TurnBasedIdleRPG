@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Character : MonoBehaviour
+public class Character
 {
     public int Vitality{ get; set; }
     public int Strength{ get; set; }
@@ -29,10 +29,21 @@ public class Character : MonoBehaviour
 
     [Header("Values")] public int attackDamage, health;
 
-    
-    private void Start()
+    public Character(int vitality, int strength, int intelligent, int speed, int armor, int luck, 
+        CharacterClass classType, int characterLevel, int experiencePoint, List<Item> equippedItems)
     {
-        if (EquippedItems == null) return;
+        if (attackDamage <= 0) throw new ArgumentOutOfRangeException(nameof(attackDamage));
+        if (health <= 0) throw new ArgumentOutOfRangeException(nameof(health));
+        Vitality = vitality;
+        Strength = strength;
+        Intelligent = intelligent;
+        Speed = speed;
+        Armor = armor;
+        Luck = luck;
+        CharacterClassType = classType;
+        CharacterLevel = characterLevel;
+        ExperiencePoint = experiencePoint;
+        EquippedItems = equippedItems;
         var equippedWeapon = EquippedItems.Find(x => x.ItemType == Item.ItemTypeEnum.Weapon);
         switch (CharacterClassType)
         {
@@ -48,13 +59,16 @@ public class Character : MonoBehaviour
                 attackDamage = equippedWeapon.WeaponDamage * 4 * Mathf.RoundToInt(1 + Strength / 10);
                 health = Vitality * 5 * (CharacterLevel + 1);
                 break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
-
     }
+
+    
     
     public void Attack(Character enemy)
     {
-        var chanceToCritical = Luck * 0.1f;
+        var chanceToCritical = Luck * 5 / (enemy.CharacterLevel * 2);
         var makeCriticalStrike = Random.Range(0f, 100f) < chanceToCritical;
         if (makeCriticalStrike)
         {
@@ -67,4 +81,5 @@ public class Character : MonoBehaviour
             enemy.health -= Mathf.RoundToInt(dealDamage - dealDamage / 100 * enemy.Armor * 0.05f);
         }
     }
+    
 }

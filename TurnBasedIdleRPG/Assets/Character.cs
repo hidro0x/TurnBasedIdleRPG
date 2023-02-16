@@ -69,6 +69,7 @@ public class Character
     public void Attack(Character enemy)
     {
         var chanceToCritical = Luck * 5 / (enemy.CharacterLevel * 2);
+        if (chanceToCritical > 50f) chanceToCritical = 50f;
         var makeCriticalStrike = Random.Range(0f, 100f) < chanceToCritical;
         if (makeCriticalStrike)
         {

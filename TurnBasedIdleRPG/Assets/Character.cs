@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -20,6 +19,8 @@ public class Character
     
     public List<Item> EquippedItems { get; set; }
     
+    public bool IsPlayer { get; set; }
+    
     public enum CharacterClass
     {
         Mage,
@@ -29,11 +30,14 @@ public class Character
 
     [Header("Values")] public int attackDamage, health;
 
-    public Character(int vitality, int strength, int intelligent, int speed, int armor, int luck, 
-        CharacterClass classType, int characterLevel, int experiencePoint, List<Item> equippedItems)
+    public Character()
     {
-        if (attackDamage <= 0) throw new ArgumentOutOfRangeException(nameof(attackDamage));
-        if (health <= 0) throw new ArgumentOutOfRangeException(nameof(health));
+        
+    }
+
+    public Character(int vitality, int strength, int intelligent, int speed, int armor, int luck, 
+        CharacterClass classType, int characterLevel, int experiencePoint, List<Item> equippedItems, bool isPlayer)
+    {
         Vitality = vitality;
         Strength = strength;
         Intelligent = intelligent;
@@ -44,6 +48,34 @@ public class Character
         CharacterLevel = characterLevel;
         ExperiencePoint = experiencePoint;
         EquippedItems = equippedItems;
+        IsPlayer = isPlayer;
+        GiveBasicItems();
+        SetDamageAndHealth();
+        
+    }
+
+    
+    
+    public void Attack(Character enemy)
+    {
+        var chanceToCritical = Luck * 5 / (enemy.CharacterLevel * 2);
+        if (chanceToCritical > 50f) chanceToCritical = 50f;
+        var makeCriticalStrike = Random.Range(0f, 100f) < chanceToCritical;
+        if (makeCriticalStrike)
+        {
+            var dealDamage = Random.Range((attackDamage - attackDamage / 10) * 2, (attackDamage + attackDamage / 10) * 2);
+            enemy.health -= Mathf.RoundToInt(dealDamage - dealDamage / 100 * enemy.Armor * 0.05f);
+        }
+        else
+        {
+            var dealDamage = Random.Range(attackDamage - attackDamage / 10, attackDamage + attackDamage / 10);
+            enemy.health -= Mathf.RoundToInt(dealDamage - dealDamage / 100 * enemy.Armor * 0.05f);
+        }
+        Debug.Log("Saldıran " + IsPlayer + " Saldırdığı " + enemy + " karşı taraf kalan can " + enemy.health + " kritik şansı " + chanceToCritical + " kritik vuruldu mu " + makeCriticalStrike);
+    }
+
+    public void SetDamageAndHealth()
+    {
         var equippedWeapon = EquippedItems.Find(x => x.ItemType == Item.ItemTypeEnum.Weapon);
         switch (CharacterClassType)
         {
@@ -64,23 +96,28 @@ public class Character
         }
     }
 
-    
-    
-    public void Attack(Character enemy)
+    public void GiveBasicItems()
     {
-        var chanceToCritical = Luck * 5 / (enemy.CharacterLevel * 2);
-        if (chanceToCritical > 50f) chanceToCritical = 50f;
-        var makeCriticalStrike = Random.Range(0f, 100f) < chanceToCritical;
-        if (makeCriticalStrike)
+        EquippedItems ??= new List<Item>();
+        switch (CharacterClassType)
         {
-            var dealDamage = Random.Range((attackDamage - attackDamage / 10) * 2, (attackDamage + attackDamage / 10) * 2);
-            enemy.health -= Mathf.RoundToInt(dealDamage - dealDamage / 100 * enemy.Armor * 0.05f);
-        }
-        else
-        {
-            var dealDamage = Random.Range(attackDamage - attackDamage / 10, attackDamage + attackDamage / 10);
-            enemy.health -= Mathf.RoundToInt(dealDamage - dealDamage / 100 * enemy.Armor * 0.05f);
+            case CharacterClass.Mage:
+                EquippedItems.Add(new Item("Basic Warrior Item", CharacterClass.Warrior, Item.ItemTypeEnum.Weapon,
+                    Item.ItemRarityEnum.Common, 0, true, 5, 2, 2 , 0, 0,
+                    0, 0));
+                break;
+            case CharacterClass.Archer:
+                EquippedItems.Add(new Item("Basic Archer Item", CharacterClass.Archer, Item.ItemTypeEnum.Weapon,
+                    Item.ItemRarityEnum.Common, 0, true, 5, 0, 2 , 2, 0,
+                    0, 0));
+                break;
+            case CharacterClass.Warrior:
+                EquippedItems.Add(new Item("Basic Warrior Item", CharacterClass.Warrior, Item.ItemTypeEnum.Weapon,
+                    Item.ItemRarityEnum.Common, 0, true, 5, 2, 2 , 0, 0,
+                    0, 0));
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
-    
 }

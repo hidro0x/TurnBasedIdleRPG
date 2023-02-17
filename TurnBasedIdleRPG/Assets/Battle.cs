@@ -65,12 +65,12 @@ public class Battle : MonoBehaviour
     {
         playerProfilePlace.color = Color.green;
         enemyProfilePlace.color = Color.red;
-        enemyStats.text = "Vitality <br><br>" + _enemy.Vitality + "Strength <br><br>" + _enemy.Strength +
-                          "Intelligence <br><br>" + _enemy.Speed + "Speed <br><br>" + _enemy.Speed +
-                          "Luck <br><br>" + _enemy.Luck;
-        playerStats.text = "Vitality <br><br>" + _player.Vitality + "Strength <br><br>" + _player.Strength +
-                          "Intelligence <br><br>" + _player.Speed + "Speed <br><br>" + _player.Speed +
-                          "Luck <br><br>" + _player.Luck;
+        enemyStats.text = "Vitality" + _enemy.Vitality + "<br>Strength " + _enemy.Strength +
+                          "<br>Intelligence" + _enemy.Speed + "<br>Speed " + _enemy.Speed +
+                          "<br>Luck " + _enemy.Luck;
+        playerStats.text = "Vitality " + _player.Vitality + "<br>Strength " + _player.Strength +
+                          "<br>Intelligence " + _player.Speed + "<br>Speed " + _player.Speed +
+                          "<br>Luck " + _player.Luck;
 
     }
 

@@ -82,63 +82,63 @@ public class Battle : MonoBehaviour
         {
             case Character.CharacterClass.Warrior:
                 enemy.Strength = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 4 - enemy.CharacterLevel * 4 / 100 * 15), 
-                    Mathf.RoundToInt(enemy.CharacterLevel * 4 + enemy.CharacterLevel * 4 / 100 * 15));
+                    Mathf.RoundToInt(enemy.CharacterLevel * 4 - enemy.CharacterLevel * 4 / 100 * 25), 
+                    Mathf.RoundToInt(enemy.CharacterLevel * 4 + enemy.CharacterLevel * 4 / 100 * 25));
                 enemy.Vitality = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 5 - enemy.CharacterLevel * 5 / 100 * 15), 
-                    Mathf.RoundToInt(enemy.CharacterLevel * 5 + enemy.CharacterLevel * 5 / 100 * 15));
+                    Mathf.RoundToInt(enemy.CharacterLevel * 5 - enemy.CharacterLevel * 5 / 100 * 25), 
+                    Mathf.RoundToInt(enemy.CharacterLevel * 5 + enemy.CharacterLevel * 5 / 100 * 25));
                 enemy.Intelligent = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 15), 
-                    Mathf.RoundToInt(enemy.CharacterLevel * 2 + enemy.CharacterLevel * 2 / 100 * 15));
+                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 25), 
+                    Mathf.RoundToInt(enemy.CharacterLevel * 2 + enemy.CharacterLevel * 2 / 100 * 25));
                 enemy.Speed = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 15), 
-                    Mathf.RoundToInt(enemy.CharacterLevel * 2 + enemy.CharacterLevel * 2 / 100 * 15));
+                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 25), 
+                    Mathf.RoundToInt(enemy.CharacterLevel * 2 + enemy.CharacterLevel * 2 / 100 * 25));
                 enemy.Luck = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 15), 
-                    Mathf.RoundToInt(enemy.CharacterLevel * 2 + enemy.CharacterLevel * 2 / 100 * 15));
+                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 25), 
+                    Mathf.RoundToInt(enemy.CharacterLevel * 2 + enemy.CharacterLevel * 2 / 100 * 25));
                 enemy.Armor = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 3 - enemy.CharacterLevel * 3 / 100 * 15),
-                    Mathf.RoundToInt(enemy.CharacterLevel * 3 + enemy.CharacterLevel * 3 / 100 * 15));
+                    Mathf.RoundToInt(enemy.CharacterLevel * 3 - enemy.CharacterLevel * 3 / 100 * 25),
+                    Mathf.RoundToInt(enemy.CharacterLevel * 3 + enemy.CharacterLevel * 3 / 100 * 25));
                 break;
             case Character.CharacterClass.Mage:
                 enemy.Strength = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 15), 
+                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 25), 
                     Mathf.RoundToInt(enemy.CharacterLevel * 2 + enemy.CharacterLevel * 2 / 100 * 15));
                 enemy.Vitality = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 3 - enemy.CharacterLevel * 3 / 100 * 15), 
-                    Mathf.RoundToInt(enemy.CharacterLevel * 3 + enemy.CharacterLevel * 3 / 100 * 15));
+                    Mathf.RoundToInt(enemy.CharacterLevel * 3 - enemy.CharacterLevel * 3 / 100 * 25), 
+                    Mathf.RoundToInt(enemy.CharacterLevel * 3 + enemy.CharacterLevel * 3 / 100 * 25));
                 enemy.Intelligent = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 5 - enemy.CharacterLevel * 5 / 100 * 15), 
-                    Mathf.RoundToInt(enemy.CharacterLevel * 5 + enemy.CharacterLevel * 5 / 100 * 15));
+                    Mathf.RoundToInt(enemy.CharacterLevel * 5 - enemy.CharacterLevel * 5 / 100 * 25), 
+                    Mathf.RoundToInt(enemy.CharacterLevel * 5 + enemy.CharacterLevel * 5 / 100 * 25));
                 enemy.Speed = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 15), 
-                    Mathf.RoundToInt(enemy.CharacterLevel * 2 + enemy.CharacterLevel * 2 / 100 * 15));
+                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 25), 
+                    Mathf.RoundToInt(enemy.CharacterLevel * 2 + enemy.CharacterLevel * 2 / 100 * 25));
                 enemy.Luck = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 15), 
-                    Mathf.RoundToInt(enemy.CharacterLevel * 2 + enemy.CharacterLevel * 2 / 100 * 15));
+                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 25), 
+                    Mathf.RoundToInt(enemy.CharacterLevel * 2 + enemy.CharacterLevel * 2 / 100 * 25));
                 enemy.Armor = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 15), 
-                    Mathf.RoundToInt(enemy.CharacterLevel * 2 + enemy.CharacterLevel * 2 / 100 * 15));
+                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 25), 
+                    Mathf.RoundToInt(enemy.CharacterLevel * 2 + enemy.CharacterLevel * 2 / 100 * 25));
                 break;
             case Character.CharacterClass.Archer:
                 enemy.Strength = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 15), 
-                    Mathf.RoundToInt(enemy.CharacterLevel * 2 + enemy.CharacterLevel * 2 / 100 * 15));
+                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 25), 
+                    Mathf.RoundToInt(enemy.CharacterLevel * 2 + enemy.CharacterLevel * 2 / 100 * 25));
                 enemy.Vitality = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 4 - enemy.CharacterLevel * 4 / 100 * 15), 
-                    Mathf.RoundToInt(enemy.CharacterLevel * 4 + enemy.CharacterLevel * 4 / 100 * 15));
+                    Mathf.RoundToInt(enemy.CharacterLevel * 4 - enemy.CharacterLevel * 4 / 100 * 25), 
+                    Mathf.RoundToInt(enemy.CharacterLevel * 4 + enemy.CharacterLevel * 4 / 100 * 25));
                 enemy.Intelligent = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 15), 
-                    Mathf.RoundToInt(enemy.CharacterLevel * 2 + enemy.CharacterLevel * 2 / 100 * 15));
+                    Mathf.RoundToInt(enemy.CharacterLevel * 2 - enemy.CharacterLevel * 2 / 100 * 25), 
+                    Mathf.RoundToInt(enemy.CharacterLevel * 2 + enemy.CharacterLevel * 2 / 100 * 25));
                 enemy.Speed = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 4 - enemy.CharacterLevel * 4 / 100 * 15), 
-                    Mathf.RoundToInt(enemy.CharacterLevel * 4 + enemy.CharacterLevel * 4 / 100 * 15));
+                    Mathf.RoundToInt(enemy.CharacterLevel * 4 - enemy.CharacterLevel * 4 / 100 * 25), 
+                    Mathf.RoundToInt(enemy.CharacterLevel * 4 + enemy.CharacterLevel * 4 / 100 * 25));
                 enemy.Luck = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 3 - enemy.CharacterLevel * 3 / 100 * 15), 
-                    Mathf.RoundToInt(enemy.CharacterLevel * 3 + enemy.CharacterLevel * 3 / 100 * 15));
+                    Mathf.RoundToInt(enemy.CharacterLevel * 3 - enemy.CharacterLevel * 3 / 100 * 25), 
+                    Mathf.RoundToInt(enemy.CharacterLevel * 3 + enemy.CharacterLevel * 3 / 100 * 25));
                 enemy.Armor = Random.Range(
-                    Mathf.RoundToInt(enemy.CharacterLevel * 3 - enemy.CharacterLevel * 3 / 100 * 15), 
-                    Mathf.RoundToInt(enemy.CharacterLevel * 3 + enemy.CharacterLevel * 3 / 100 * 15));
+                    Mathf.RoundToInt(enemy.CharacterLevel * 3 - enemy.CharacterLevel * 3 / 100 * 25), 
+                    Mathf.RoundToInt(enemy.CharacterLevel * 3 + enemy.CharacterLevel * 3 / 100 * 25));
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(characterClass), characterClass, null);
@@ -147,6 +147,7 @@ public class Battle : MonoBehaviour
         enemy.SetDamageAndHealth();
         return enemy;
     }
+    
     
     
 }
